@@ -1,17 +1,12 @@
-import os 
+import os
 class Config:
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:azbycx567@localhost/bworld'
     SQLALCHEMY_TRACK_MODIFICATIONS=False
-    SECRET_KEY=os.environ.get('SECRET_KEY')
-class ProdConfig(Config):
-    
-    DEBUG=True
-    
-
-class DevConfig(Config):
-    """
-    DevConfig
-
-    """
-
-
+    SECRET_KEY='wertyuiokjhvxcvbn'
+    MAIL_SERVER = 'smtp.gmail.com'
+    MAIL_PORT = 587
+    MAIL_USE_TLS = True
+    MAIL_USE_SSL = False
+    MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
+    MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
+    DEBUG = True

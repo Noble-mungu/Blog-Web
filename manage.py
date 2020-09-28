@@ -7,7 +7,7 @@ app = create_app()
 manager =  Manager(app,db)
 manager.add_command('db',MigrateCommand)
 migrate = Migrate(app,db)
-manager.add_command('run',Server())
+manager.add_command('run',Server(host='localhost',port=5678))
 @manager.shell
 def make_shell_context():
     return dict(app = app,db = db,User = User)
